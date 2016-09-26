@@ -24,9 +24,9 @@ public class StudentService {
 	
 	public List<Object> getStudentInfo(Student st){
 		StringBuffer sff = new StringBuffer();
-		sff.append("select * from ").append("student").append(" where id = ").append(st.getId());
-		List<Object> list = entityDao.createQuery(sff.toString());
-		return list;
+		sff.append("from ").append(Student.class.getName()).append(" where id= ").append(st.getId());
+		List<Object> info = entityDao.createQuery(sff.toString());
+		return info;
 	}
 	
 	public void save(Student st){

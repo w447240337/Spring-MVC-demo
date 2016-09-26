@@ -62,9 +62,10 @@ $.ajax( {
 				<td><c:out value="${student.id}" /></td>
 				<td><c:out value="${student.user}" /></td>
 				<td><c:out value="${student.psw}" /></td>
-				<td><input type="button" onclick="edit('<c:out value="${student.id}"/>')" value="编辑" />
-					<input type="button"
-					onclick="del('<c:out value="${student.id}"/>')" value="删除" /></td>
+				<td><input type="button"
+					onclick="edit('<c:out value="${student.id}"/>')" value="编辑" /> <input
+					type="button" onclick="del('<c:out value="${student.id}"/>')"
+					value="删除" /></td>
 			</tr>
 		</c:forEach>
 
