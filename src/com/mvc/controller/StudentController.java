@@ -68,6 +68,20 @@ public class StudentController {
 		return "student_add";
 	}
 
+	@RequestMapping(params = "method=update")
+	public void update(HttpServletRequest request ,HttpServletResponse response) {
+		try {
+			Student st = new Student();
+			String user = request.getParameter("user");
+			String psw = request.getParameter("psw");
+			studentService.save(st);
+			response.getWriter().print("{\"update\":\"true\"}");
+		} catch (Exception e) {
+			log.error(e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
 	@RequestMapping(params = "method=del")
 	public void del(@RequestParam("id") String id, HttpServletResponse response) {
 		try {

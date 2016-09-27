@@ -27,24 +27,23 @@ function edit(id){
 }
 
 function del(id){
-$.ajax( {
-	type : "POST",
-	url : "<%=request.getContextPath()%>/student.do?method=del&id="
-					+ id,
-			dataType : "json",
-			success : function(data) {
-				if (data.del == "true") {
-					alert("删除成功！");
-					$("#" + id).remove();
-				} else {
-					alert("删除失败！");
-				}
-			},
-			error : function() {
-				alert("网络连接出错！");
+	$.ajax( {
+		type : "POST",
+		url : "<%=request.getContextPath()%>/student.do?method=del&id="+ id,
+		dataType : "json",
+		success : function(data) {
+			if (data.del == "true") {
+				alert("删除成功！");
+				$("#" + id).remove();
+			} else {
+				alert("删除失败！");
 			}
-		});
-	}
+		},
+		error : function() {
+			alert("网络连接出错！");
+		}
+	});
+}
 </script>
 </head>
 <body>
