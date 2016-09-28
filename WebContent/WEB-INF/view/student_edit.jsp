@@ -5,16 +5,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>信息编辑</title>
 <script language="javascript"
 	src="<%=request.getContextPath()%>/script/jquery.min.js"></script>
 <script>
-	function update() {
+	function update_user() {
+		var id = $("#id").val();
+		var user = $("#user").val();
+		var password = $("#password").val();
 		$.ajax( {
 			type: "POST",
 			url:"<%=request.getContextPath()%>/student.do?method=update",
 			dataType : "json",
-			data: JSON.stringify({ "user": "1222" }),
+			data:{ "id": id ,"user": user,"password":password },
 			success : function(data) {
 				if (data.update == "true") {
 					alert("修改成功！");
@@ -31,13 +34,13 @@
 </head>
 <body>
 	<c:forEach items="${info}" var="student">
+		<input type="hidden" value="${student.id}" id="id">
 		<div>
-			姓名：${student.user}<input type="text" id="name"><input
-				type="button" onclick="update()" value="提交">
+			姓名：${student.user}<input type="text" id="user"><input
+				type="button" onclick="update_user()" value="提交">
 		</div>
 		<div>
-			密码：${student.psw} <input type="text" id="name"><input
-				type="button" onclick="update" value="提交">
+			密码：${student.psw} <input type="text" id="password">
 		</div>
 	</c:forEach>
 </body>

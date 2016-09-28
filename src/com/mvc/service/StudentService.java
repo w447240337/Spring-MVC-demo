@@ -32,6 +32,11 @@ public class StudentService {
 	public void save(Student st){
 		entityDao.save(st);
 	}
+	
+	public void update(Student st){
+		entityDao.update(st);
+	}
+	
 	public void delete(Object obj){
 		entityDao.delete(obj);
 	}
